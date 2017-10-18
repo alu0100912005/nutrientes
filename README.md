@@ -1,43 +1,35 @@
-# Alimento
+# Practica 6 - LPP 17/18 - Nicolangelo Famiglietti
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/alimento`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Descripcion
 
-TODO: Delete this and the text above, and describe your gem
+· Cuando el organismo quema 1 g de glucidos obtiene 4 Kcal
+· Cuando el organismo quema 1 g de lıpidos obtiene 9 Kcal
+· Cuando el organismo quema 1 g de prote´ınas consigue 4 Kcal
 
-## Installation
+Por ejemplo, un alimento que contenga 10 g de proteına, 20 g de glucidos y 9 g de grasa nos proporcionaria 201 Kcal: 10 × 4 + 20 × 4 + 9 × 9 = 201Kcal.
 
-Add this line to your application's Gemfile:
 
-```ruby
-gem 'alimento'
-```
+## TODO
 
-And then execute:
+1. Aceptar la tarea asignada en GitHub Classroom denominada “TDD”.
+    ( https://classroom.github.com/a/x_8sJoR4 )
+2. Crear la estructura del ‘directorio de trabajo’ haciendo uso de Bundler. Se han de diseñar las pruebas y despues desarrollar el codigo que las verifique. Junto con la rama master, se han de empujar en el repositorio remoto todas las ramas de trabajo que se utilicen.
+3. Desarrollar una clase Ruby para representar Alimentos.
+4. Para el desarrollo de la clase utilizar la metodolog´ıa de desarrollo dirigido por pruebas (Test Driven Development - TDD) y la herramienta RSpec.
 
-    $ bundle
+·Debe existir un nombre para el alimento.
+·Debe existir la candidad de proteınas del alimento en gramos.
+·Debe existir la candidad de glucidos del alimento en gramos.
+·Debe existir la candidad de grasas del alimento en gramos.
+·Existe un metodo para obtener el nombre del alimento.
+·Existe un metodo para obtener la cantidad de proteınas de un alimento.
+·Existe un metodo para obtener la cantidad de glucidos de un alimento.
+·Existe un metodo para obtener de grasas de un alimento.
+·Existe un metodo para obtener el alimento formateado.
+·Existe un metodo para obtener el valor energetico de un alimento.
 
-Or install it yourself as:
 
-    $ gem install alimento
 
 ## Usage
 
 pendiente desarrollar uso
-
-## Development
-
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake spec` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
-
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
-
-## Contributing
-
-Bug reports and pull requests are welcome on GitHub at https://github.com/ULL-ESIT-LPP-1718/tdd-alu0100912005. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
-
-## License
-
-The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
-## Code of Conduct
-
-Everyone interacting in the Alimento project’s codebases, issue trackers, chat rooms and mailing lists is expected to follow the [code of conduct](https://github.com/ULL-ESIT-LPP-1718/tdd-alu0100912005/blob/master/CODE_OF_CONDUCT.md).

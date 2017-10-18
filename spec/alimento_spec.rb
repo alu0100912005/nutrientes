@@ -1,11 +1,9 @@
 require "spec_helper"
+require "./lib/alimento/alimento"
 
 RSpec.describe Alimento do
-  it "has a version number" do
+  it "tiene un numero de version" do
     expect(Alimento::VERSION).not_to be nil
   end
 
-  it "does something useful" do
-    expect(false).to eq(true)
-  end
 end
