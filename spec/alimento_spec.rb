@@ -32,4 +32,8 @@ RSpec.describe Alimento do
     expect(huevo.get_format).to eq("Huevo frito: 14.1 · 0.0 · 19.5")
   end
   
+  it "tiene un calcular valor energetico" do
+    expect(huevo.get_ve).not_to be nil
+  end
+  
 end
