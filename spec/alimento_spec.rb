@@ -19,9 +19,9 @@ RSpec.describe Alimento do
     expect(huevo.get_proteinas).not_to be nil
   end
   
-  # it "tiene unas glucidos en gramos" do
-  #   expect(huevo.get_glucidos).not_to be nil
-  # end
+  it "tiene unas glucidos en gramos" do
+    expect(huevo.get_glucidos).not_to be nil
+  end
 
   # it "tiene unas grasas en gramos" do
   #   expect(huevo.get_grasas).not_to be nil
