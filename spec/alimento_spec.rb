@@ -34,6 +34,7 @@ RSpec.describe Alimento do
   
   it "tiene un calcular valor energetico" do
     expect(huevo.get_ve).not_to be nil
+    # puts huevo.get_ve
   end
   
 end

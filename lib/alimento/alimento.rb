@@ -28,4 +28,10 @@ class Food
         return s
     end
     
+    def get_ve
+        s=(@proteinas * 4) + (@glucidos * 4) + (@grasas * 9)
+        # s+=" Kcal"
+        return s
+    end
+    
 end
