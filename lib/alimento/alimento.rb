@@ -15,9 +15,9 @@ class Food
         return @proteinas
     end
     
-    # def get_glucidos
-    #     return @glucidos
-    # end
+    def get_glucidos
+        return @glucidos
+    end
     
     # def get_grasas
     #     return @grasas
