@@ -23,9 +23,9 @@ class Food
         return @grasas
     end
     
-    # def get_format
-    #     s="#{@nombre}: #{@proteinas} · #{@glucidos} · #{@grasas}"
-    #     return s
-    # end
+    def get_format
+        s="#{@nombre}: #{@proteinas} · #{@glucidos} · #{@grasas}"
+        return s
+    end
     
 end
