@@ -15,7 +15,7 @@ RSpec.describe Alimento do
     expect(huevo.to_s).to eq("Huevo frito")
   end
   
-  it "tiene unas proteinas en gramoss" do
+  it "tiene unas proteinas en gramos" do
     expect(huevo.get_proteinas).not_to be nil
   end
   
