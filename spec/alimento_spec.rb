@@ -2,13 +2,20 @@ require "spec_helper"
 require "./lib/alimento/alimento.rb"
 
 RSpec.describe Alimento do
-  @nombre = "Huevo frito"
+  # @huevo = "Huevo frito"
+  # @leche = "Leche vaca"
+  # @yogurt = "Yogurt"
+  # @cerdo = "Cerdo"
   
   it "tiene un numero de version" do
     expect(Alimento::VERSION).not_to be nil
     
   end
-  huevo = Food.new(@nombre, 14.1, 0.0, 19.5)
+  huevo  = Food.new("Huevo frito", 14.1, 0.0, 19.5)
+  leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
+  yogurt = Food.new("Yogurt"     , 3.8 , 4.9,  3.8)
+  cerdo  = Food.new("Cerdo"      , 21.5, 0.0,  6.3)
+  
   
   it "debe existir un nombre para el alimento" do
     expect(huevo.nombre).not_to be nil
@@ -47,6 +54,9 @@ RSpec.describe Alimento do
   it "tiene un metodo para obtener alimento formateado" do
     # expect(huevo.get_format).not_to be nil
     expect(huevo.get_format).to eq("Huevo frito: 14.1 · 0.0 · 19.5")
+    puts yogurt.get_format
+    puts leche.get_format
+    puts cerdo.get_format
   end
   
   it "tiene un calcular valor energetico" do
