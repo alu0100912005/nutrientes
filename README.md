@@ -2,12 +2,7 @@
 
 ## Descripcion
 
-· Cuando el organismo quema 1 g de glucidos obtiene 4 Kcal
-· Cuando el organismo quema 1 g de lıpidos obtiene 9 Kcal
-· Cuando el organismo quema 1 g de prote´ınas consigue 4 Kcal
-
-Por ejemplo, un alimento que contenga 10 g de proteına, 20 g de glucidos y 9 g de grasa nos proporcionaria 201 Kcal: 10 × 4 + 20 × 4 + 9 × 9 = 201Kcal.
-
+Practica para aprender a realizar TDD como método de desarrollo.
 
 ## TODO
 
@@ -15,23 +10,28 @@ Por ejemplo, un alimento que contenga 10 g de proteına, 20 g de glucidos y 9 g 
     ( https://classroom.github.com/a/x_8sJoR4 )
 2. Crear la estructura del ‘directorio de trabajo’ haciendo uso de Bundler. Se han de diseñar las pruebas y despues desarrollar el codigo que las verifique. Junto con la rama master, se han de empujar en el repositorio remoto todas las ramas de trabajo que se utilicen.
 3. Desarrollar una clase Ruby para representar Alimentos.
-4. Para el desarrollo de la clase utilizar la metodolog´ıa de desarrollo dirigido por pruebas (Test Driven Development - TDD) y la herramienta RSpec.
+4. Para el desarrollo de la clase utilizar la metodologia de desarrollo dirigido por pruebas (Test Driven Development - TDD) y la herramienta RSpec.
 
-·Debe existir un nombre para el alimento.
-·Debe existir la candidad de proteınas del alimento en gramos.
-·Debe existir la candidad de glucidos del alimento en gramos.
-·Debe existir la candidad de grasas del alimento en gramos.
-·Existe un metodo para obtener el nombre del alimento.
-·Existe un metodo para obtener la cantidad de proteınas de un alimento.
-·Existe un metodo para obtener la cantidad de glucidos de un alimento.
-·Existe un metodo para obtener de grasas de un alimento.
-·Existe un metodo para obtener el alimento formateado.
-·Existe un metodo para obtener el valor energetico de un alimento.
+<li>Debe existir un nombre para el alimento.</li>
+<li>Debe existir la candidad de proteınas del alimento en gramos.</li>
+<li>Debe existir la candidad de glucidos del alimento en gramos.</li>
+<li>Debe existir la candidad de grasas del alimento en gramos.</li>
+<li>Existe un metodo para obtener el nombre del alimento.</li>
+<li>Existe un metodo para obtener la cantidad de proteınas de un alimento.</li>
+<li>Existe un metodo para obtener la cantidad de glucidos de un alimento.</li>
+<li>Existe un metodo para obtener de grasas de un alimento.</li>
+<li>Existe un metodo para obtener el alimento formateado.</li>
+<li>Existe un metodo para obtener el valor energetico de un alimento.</li>
 
 
 
 ## Usage
 
-pendiente desarrollar uso
+### Gemas utilizadas:
 
-##en rama desarrollo
+<li>rake</li>
+<li>rspec</li>
+
+
+
+## <u><i>En rama desarrollo</i></u>
