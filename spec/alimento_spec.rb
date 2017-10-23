@@ -1,11 +1,7 @@
 require "spec_helper"
 require "./lib/alimento/alimento.rb"
 
-RSpec.describe Alimento do
-  # @huevo = "Huevo frito"
-  # @leche = "Leche vaca"
-  # @yogurt = "Yogurt"
-  # @cerdo = "Cerdo"
+RSpec.describe Food do
   
   it "tiene un numero de version" do
     expect(Alimento::VERSION).not_to be nil
@@ -60,7 +56,6 @@ RSpec.describe Alimento do
   end
   
   it "tiene un calcular valor energetico" do
-    # expect(huevo.get_ve).not_to be nil
     puts huevo.get_ve
   end
   

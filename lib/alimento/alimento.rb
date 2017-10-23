@@ -13,7 +13,7 @@ class Food
     end
     
     def get_ve
-        sum=(@proteinas * 4) + (@glucidos * 4) + (@grasas * 9)
+        sum = (@proteinas * 4) + (@glucidos * 4) + (@grasas * 9)
         aux = "#{sum}" + " Kcal"
         return aux
     end
