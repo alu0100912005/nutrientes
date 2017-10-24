@@ -48,11 +48,11 @@ RSpec.describe Food do
   end
   
   it "tiene un metodo para obtener alimento formateado" do
-    # expect(huevo.get_format).not_to be nil
-    expect(huevo.get_format).to eq("Huevo frito: 14.1 · 0.0 · 19.5")
-    puts yogurt.get_format
-    puts leche.get_format
-    puts cerdo.get_format
+    # expect(huevo.to_s).not_to be nil
+    expect(huevo.to_s).to eq("Huevo frito: 14.1 · 0.0 · 19.5")
+    puts yogurt.to_s
+    puts leche.to_s
+    puts cerdo.to_s
   end
   
   it "tiene un calcular valor energetico" do

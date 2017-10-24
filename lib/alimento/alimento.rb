@@ -7,7 +7,7 @@ class Food
       @nombre, @proteinas, @glucidos, @grasas = nombre, proteinas, glucidos, grasas
     end
     
-    def get_format
+    def to_s
         s="#{@nombre}: #{@proteinas} · #{@glucidos} · #{@grasas}"
         return s
     end
