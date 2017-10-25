@@ -29,9 +29,7 @@ Practica para aprender a realizar TDD como método de desarrollo.
 
 ### Gemas utilizadas:
 
+<li>bundler</li>
 <li>rake</li>
 <li>rspec</li>
 
-
-
-## <u><i>En rama master</i></u>
