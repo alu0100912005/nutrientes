@@ -32,19 +32,19 @@ RSpec.describe Food do
   end
   
   it "existe un metodo para obtener el nombre del alimento" do
-    puts huevo.nombre
+    expect(huevo.nombre).to eq("Huevo frito")
   end
   
   it "existe un metodo para obtener la cantidad de protinas de un alimento" do
-    puts huevo.proteinas
+    expect(huevo.proteinas).to eq(14.1)
   end
   
   it "existe un metodo para obtener la cantidad de glucidos de un alimento" do
-    puts huevo.glucidos
+    expect(huevo.glucidos).to eq(0.0)
   end
   
   it "existe un metodo para obtener la cantidad de grasas de un alimento" do
-    puts huevo.grasas
+    expect(huevo.grasas).to eq(19.5)
   end
   
   it "tiene un metodo para obtener alimento formateado" do
@@ -56,7 +56,7 @@ RSpec.describe Food do
   end
   
   it "tiene un calcular valor energetico" do
-    puts huevo.get_ve
+    expect(huevo.get_ve).to eq("231.9 Kcal")
   end
   
 end
