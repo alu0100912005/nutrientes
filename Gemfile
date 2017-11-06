@@ -4,3 +4,7 @@ git_source(:github) {|repo_name| "https://github.com/ULL-ESIT-LPP-1718/tdd-alu01
 
 # Specify your gem's dependencies in alimento.gemspec
 gemspec
+
+group :development do
+  gem 'guard'
+end
