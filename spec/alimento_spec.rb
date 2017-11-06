@@ -40,6 +40,9 @@ RSpec.describe ListaDoblementeEnlazada do
     it "Se extrae el primer elemento de la Lista" do
       expect(@list.extract_head.value).to eq(1)
     end
+    it "Se extrae el ultimo elemento de la Lista" do
+      expect(@lista.extraer_final).to eq(7)
+    end
   end
 end
 
