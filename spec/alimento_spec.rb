@@ -18,6 +18,7 @@ end
 RSpec.describe ListaDoblementeEnlazada do
   before :all do
     @list = ListaDoblementeEnlazada.new()
+    @elemento = %w(1 2 3 4 5)
   end
   context "#Lista" do
     it "Debe existir una Lista con su cabeza" do
@@ -28,6 +29,16 @@ RSpec.describe ListaDoblementeEnlazada do
     end
     it "Se puede insertar un elemento en la Lista" do
       expect(@list.insert(1)).to eq(true)
+    end
+    it "Se pueden insertar varios elementos en la Lista" do
+      i=0
+      while i < @elemento.size-1
+        expect(@list.insert(@elemento[i])).to eq(true)
+        i+=1
+      end
+    end
+    it "Se extrae el primer elemento de la Lista" do
+      expect(@list.extract_head.value).to eq(1)
     end
   end
 end
