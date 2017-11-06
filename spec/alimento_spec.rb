@@ -3,7 +3,7 @@ require "./lib/alimento/alimento"
 require "./lib/alimento/lista"
 
 RSpec.describe ListaDoblementeEnlazada do
-  context "#Lista doblemente enlazada" do
+  context "#Nodo" do
         it "Debe existir un Nodo de la lista con sus datos, su anterior y su siguiente" do
             @nodo = Node.new(0,nil);
             expect(@nodo[:value]).to eq(0)
