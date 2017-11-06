@@ -2,6 +2,21 @@ require "spec_helper"
 require "./lib/alimento/alimento"
 require "./lib/alimento/lista"
 
+
+RSpec.describe Piramide do
+  before :all do
+    @huevo_frito = Piramide.new("Huevo frito", 14.1, 0.0, 19.5, "Huevos, lacteos y helados")
+  end
+  context "#Piramide alimenticia" do
+    it "Tiene un nombre de grupo" do
+      expect(@huevo_frito.devolver_nombre_grupo).to eq("Huevos, lacteos y helados")  
+    end
+    it "proteina" do
+      expect(@huevo_frito.proteinas).to eq(14.1)
+    end
+  end
+end
+
 RSpec.describe Node do
   before :all do
     @nodo = Node.new(0,nil)
@@ -41,7 +56,7 @@ RSpec.describe ListaDoblementeEnlazada do
       expect(@list.extract_head.value).to eq(1)
     end
     it "Se extrae el ultimo elemento de la Lista" do
-      expect(@lista.extraer_final).to eq(7)
+      expect(@list.extraer_final).to eq("4")
     end
   end
 end

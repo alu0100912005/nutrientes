@@ -19,3 +19,13 @@ class Food
     end
     
 end
+
+class Piramide < Food
+    def initialize(nombre, proteinas, glucidos, grasas, n_grupo)
+      super(nombre, proteinas, glucidos, grasas)
+      @n_grupo = n_grupo
+    end
+    def devolver_nombre_grupo
+        @n_grupo
+    end
+end

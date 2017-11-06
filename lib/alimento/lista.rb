@@ -37,4 +37,19 @@ class ListaDoblementeEnlazada
       	end
       	nodo
     end
+    def extraer_final
+        aux = nil
+        if @tail[:value]==nil
+            aux=nil
+        else
+            aux = @tail[:value]
+            @tail = @tail[:prev]
+            @tail = nil
+        end
+        if @tail==nil
+            @tail = Node.new
+            @head = @tail
+        end
+        aux
+    end
 end
