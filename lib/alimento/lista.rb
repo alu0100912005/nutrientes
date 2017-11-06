@@ -25,4 +25,16 @@ class ListaDoblementeEnlazada
         end
         true
     end
+    def extract_head
+        nodo = @head
+      	if nodo != nil
+      		if nodo.next != nil
+      			@head = nodo.next
+      		else
+      			@head = nil
+      			@tail = nil
+      		end
+      	end
+      	nodo
+    end
 end
