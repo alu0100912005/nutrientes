@@ -21,10 +21,13 @@ RSpec.describe ListaDoblementeEnlazada do
   end
   context "#Lista" do
     it "Debe existir una Lista con su cabeza" do
-        expect(@list.head).to eq(nil)
+      expect(@list.head).to eq(nil)
     end
     it "Debe existir una Lista con su cola" do
-        expect(@list.tail).to eq(nil)
+      expect(@list.tail).to eq(nil)
+    end
+    it "Se puede insertar un elemento en la Lista" do
+      expect(@list.insert(1)).to eq(true)
     end
   end
 end
