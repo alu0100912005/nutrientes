@@ -1,5 +1,18 @@
 require "spec_helper"
-require "./lib/alimento/alimento.rb"
+require "./lib/alimento/alimento"
+require "./lib/alimento/lista"
+
+RSpec.describe ListaDoblementeEnlazada do
+  context "#Lista doblemente enlazada" do
+        it "Debe existir un Nodo de la lista con sus datos, su anterior y su siguiente" do
+            @nodo = Node.new(0,nil);
+            expect(@nodo[:value]).to eq(0)
+            expect(@nodo[:next]).to eq(nil)
+            expect(@nodo[:prev]).to eq(nil)
+        end 
+    end
+  
+end
 
 RSpec.describe Food do
   
