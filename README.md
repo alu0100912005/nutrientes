@@ -47,3 +47,4 @@ Genere pruebas para comprobar la clase de un objeto, el tipo de un objeto y su p
 <li>rake</li>
 <li>rspec</li>
 
+### En P7
