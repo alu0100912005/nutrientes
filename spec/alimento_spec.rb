@@ -19,8 +19,10 @@ RSpec.describe ListaDoblementeEnlazada do
   before :all do
     @list = ListaDoblementeEnlazada.new()
   end
-  it "#Debe existir una Lista con su cabeza error" do
-      expect(@list.head).to eq(nil)
+  context "#Lista" do
+    it "Debe existir una Lista con su cabeza error" do
+        expect(@list.head).to eq(nil)
+    end
   end
 end
 
