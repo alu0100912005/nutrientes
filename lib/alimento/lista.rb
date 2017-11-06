@@ -7,4 +7,22 @@ class ListaDoblementeEnlazada
     def initialize
         @head = @tail = nil
     end
+    def empty
+        if(@head == nil)
+            true
+        elsif
+            false
+        end
+    end
+    def insert(value)
+        node = Node.new(value, nil)
+        if(empty)
+            @head = node
+            @tail = node
+        elsif
+            @tail.next = node
+            @tail = node
+        end
+        true
+    end
 end
