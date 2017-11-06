@@ -2,16 +2,26 @@ require "spec_helper"
 require "./lib/alimento/alimento"
 require "./lib/alimento/lista"
 
-RSpec.describe ListaDoblementeEnlazada do
+RSpec.describe Node do
+  before :all do
+    @nodo = Node.new(0,nil)
+  end
   context "#Nodo" do
         it "Debe existir un Nodo de la lista con sus datos, su anterior y su siguiente" do
-            @nodo = Node.new(0,nil);
             expect(@nodo[:value]).to eq(0)
             expect(@nodo[:next]).to eq(nil)
             expect(@nodo[:prev]).to eq(nil)
         end 
     end
-  
+end
+
+RSpec.describe ListaDoblementeEnlazada do
+  before :all do
+    @list = ListaDoblementeEnlazada.new()
+  end
+  it "#Debe existir una Lista con su cabeza error" do
+      expect(@list.head).to eq(nil)
+  end
 end
 
 RSpec.describe Food do
