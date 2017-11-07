@@ -11,13 +11,13 @@ class ListaDoblementeEnlazada
     end
     def to_s
         aux = @head
-        puts aux.value.n_grupo
-        puts "\t\t\tProteinas Glucidos Lipidos"
+        s= aux.value.n_grupo
+        s+= "\t\t\tProteinas Glucidos Lipidos"
         while(aux != nil)
-            s="\t#{aux.value.nombre}: \t#{aux.value.proteinas}  \t   #{aux.value.glucidos}      #{aux.value.grasas}"
-            puts s
+            s+="\t#{aux.value.nombre}: \t#{aux.value.proteinas}  \t   #{aux.value.glucidos}      #{aux.value.grasas}"
             aux= aux[:next]
         end
+        s
     end
     def size
         count = 0
@@ -61,7 +61,7 @@ class ListaDoblementeEnlazada
       	end
       	nodo
     end
-    def extraer_final
+    def extract_tail
         aux = nil
         if @tail[:value]==nil
             aux=nil

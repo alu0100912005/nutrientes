@@ -8,29 +8,30 @@ RSpec.describe Piramide do
     @huevo_frito = Piramide.new("Huevo frito", 14.1, 0.0, 19.5, "Huevos, lacteos y helados")
     @leche  = Piramide.new("Leche vaca" , 3.3 , 4.8,  3.2, "Huevos, lacteos y helados")
     @yogurt = Piramide.new("Yogurt"     , 3.8 , 4.9,  3.8, "Huevos, lacteos y helados")
-    
   end
   
   context "#Piramide alimenticia" do
-    it "Tiene un nombre de grupo" do
-      @huevo_frito.to_s
+    it "Los alimentos ahora tienen un nombre de grupo" do
+      expect(@huevo_frito.to_s).to eq("Huevos, lacteos y helados")
     end
-    it "Valor de proteina del huevo" do
-      expect(@huevo_frito.proteinas).to eq(14.1)
-    end
+    ##hacer las pruebas de herencia
   end
 end
 
 RSpec.describe Node do
   before :all do
-    @nodo = Node.new(0,nil)
+    @nodo = Node.new("Valor",nil)
+    @nodo1 = Node.new(10, @nodo)
   end
   context "#Nodo" do
         it "Debe existir un Nodo de la lista con sus datos, su anterior y su siguiente" do
-            expect(@nodo[:value]).to eq(0)
+            expect(@nodo[:value]).to eq("Valor")
             expect(@nodo[:next]).to eq(nil)
             expect(@nodo[:prev]).to eq(nil)
         end 
+        it "Debe tener un siguiente" do
+          expect(@nodo1.next).to eq(@nodo)
+        end
     end
 end
 
@@ -44,9 +45,7 @@ RSpec.describe ListaDoblementeEnlazada do
     @yogurt = Piramide.new("Yogurt"     , 3.8 , 4.9,  3.8, "Huevos, lacteos y helados")
     
     @lista_g1 = ListaDoblementeEnlazada.new()
-    @lista_g1.insert(@huevo_frito)
-    @lista_g1.insert(@yogurt)
-    @lista_g1.insert(@leche)
+    
     ###################
     # Carnes y derivados 
     @cerdo = Piramide.new("Cerdo", 21.5, 0.0, 6.3, "Carnes y Derivados")
@@ -67,17 +66,30 @@ RSpec.describe ListaDoblementeEnlazada do
     @lista_g3.insert(@salmon)
     ###################
   end
-  context "Grupos de alimentos" do
-    it "Huevos, lacteos y helados" do
-      @lista_g1.to_s  
+  context "#Grupos de alimentos" do
+    it "Debe poder insertar en una lista un alimento completo" do
+      expect(@lista_g1.insert(@huevo_frito)).to eq(true)
+      expect(@lista_g1.insert(@yogurt)).to eq(true)
+      expect(@lista_g1.insert(@leche)).to eq(true)
     end
-    it "Carnes y derivados" do
-      @lista_g2.to_s  
+    it "Existe un metodo to_s para el formateado del menu" do
+      expect(@lista_g1.to_s).to eq("Huevos, lacteos y helados\t\t\tProteinas Glucidos Lipidos\tHuevo frito: \t14.1  \t   0.0      19.5\tYogurt: \t3.8  \t   4.9      3.8\tLeche vaca: \t3.3  \t   4.8      3.2")
     end
-    it "Pescados y mariscos" do
-      @lista_g3.to_s  
+    # it "Carnes y derivados" do
+    #   @lista_g2.to_s  
+    # end
+    # it "Pescados y mariscos" do
+    #   @lista_g3.to_s  
+    # end
+    
+    it "Extrae por la cabeza de la lista - G1" do
+      expect(@lista_g1.extract_head).not_to be nil
     end
-  
+    it "Extrae por la cola de la lista - G1" do
+      expect(@lista_g1.extract_tail).not_to be nil
+    end
+  end
+  context "#Lista de enteros" do
     it "Debe existir una Lista con su cabeza" do
       expect(@list.head).to eq(nil)
     end
@@ -98,7 +110,7 @@ RSpec.describe ListaDoblementeEnlazada do
       expect(@list.extract_head.value).to eq(1)
     end
     it "Se extrae el ultimo elemento de la Lista" do
-      expect(@list.extraer_final).to eq("4")
+      expect(@list.extract_tail).to eq("4")
     end
   end
 end
@@ -110,18 +122,16 @@ RSpec.describe Food do
     
   end
   huevo  = Food.new("Huevo frito", 14.1, 0.0, 19.5)
-  leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
-  yogurt = Food.new("Yogurt"     , 3.8 , 4.9,  3.8)
-  cerdo  = Food.new("Cerdo"      , 21.5, 0.0,  6.3)
+  # leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
+  # yogurt = Food.new("Yogurt"     , 3.8 , 4.9,  3.8)
+  # cerdo  = Food.new("Cerdo"      , 21.5, 0.0,  6.3)
   
   
   it "debe existir un nombre para el alimento" do
     expect(huevo.nombre).not_to be nil
-    # expect(huevo.to_s).to eq("Huevo frito")
   end
   
   it "debe existir la cantidad de proteinas del alimento en gramos" do
-    # expect(huevo.get_proteinas).not_to be nil
     expect(huevo.proteinas).not_to be nil
   end
   
@@ -152,12 +162,9 @@ RSpec.describe Food do
   it "tiene un metodo para obtener alimento formateado" do
     # expect(huevo.to_s).not_to be nil
     expect(huevo.to_s).to eq("Huevo frito: 14.1 · 0.0 · 19.5")
-    puts yogurt.to_s
-    puts leche.to_s
-    puts cerdo.to_s
   end
   
-  it "tiene un calcular valor energetico" do
+  it "tiene un metodo para calcular valor energetico" do
     expect(huevo.get_ve).to eq("231.9 Kcal")
   end
   

@@ -26,7 +26,7 @@ class Piramide < Food
       @n_grupo = n_grupo
     end
     def to_s
-      puts @n_grupo
+      @n_grupo
     end
     def devolver_nombre_grupo
         @n_grupo
