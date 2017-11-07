@@ -1,11 +1,35 @@
 require "alimento/alimento"
+require "./lib/alimento/alimento"
 
 #  create  a  Struct  with  :value,  :next  and  :prev 
 Node  =  Struct.new(:value,  :next,  :prev)
 class ListaDoblementeEnlazada
     attr_reader :head, :tail
+    # attr_accessor :nombre, :proteinas, :glucidos, :grasas
     def initialize
         @head = @tail = nil
+    end
+    def to_s
+        aux = @head
+        puts aux.value.n_grupo
+        puts "\t\t\tProteinas Glucidos Lipidos"
+        while(aux != nil)
+            s="\t#{aux.value.nombre}: \t#{aux.value.proteinas}  \t   #{aux.value.glucidos}      #{aux.value.grasas}"
+            puts s
+            aux= aux[:next]
+        end
+    end
+    def size
+        count = 0
+        if @head[:value] != nil then
+            count=1
+        end
+        aux= @head
+        until aux[:next] == nil do
+            count+=1
+            aux=aux[:next]
+        end
+        count
     end
     def empty
         if(@head == nil)

@@ -1,7 +1,7 @@
 require "alimento/alimento"
 
 class Food
-    attr_accessor :nombre, :proteinas, :glucidos, :grasas
+    attr_accessor :nombre, :proteinas, :glucidos, :grasas, :n_grupo
    
     def initialize(nombre, proteinas, glucidos, grasas)
       @nombre, @proteinas, @glucidos, @grasas = nombre, proteinas, glucidos, grasas
@@ -24,6 +24,9 @@ class Piramide < Food
     def initialize(nombre, proteinas, glucidos, grasas, n_grupo)
       super(nombre, proteinas, glucidos, grasas)
       @n_grupo = n_grupo
+    end
+    def to_s
+      puts @n_grupo
     end
     def devolver_nombre_grupo
         @n_grupo

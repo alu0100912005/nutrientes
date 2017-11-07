@@ -6,12 +6,16 @@ require "./lib/alimento/lista"
 RSpec.describe Piramide do
   before :all do
     @huevo_frito = Piramide.new("Huevo frito", 14.1, 0.0, 19.5, "Huevos, lacteos y helados")
+    @leche  = Piramide.new("Leche vaca" , 3.3 , 4.8,  3.2, "Huevos, lacteos y helados")
+    @yogurt = Piramide.new("Yogurt"     , 3.8 , 4.9,  3.8, "Huevos, lacteos y helados")
+    
   end
+  
   context "#Piramide alimenticia" do
     it "Tiene un nombre de grupo" do
-      expect(@huevo_frito.devolver_nombre_grupo).to eq("Huevos, lacteos y helados")  
+      @huevo_frito.to_s
     end
-    it "proteina" do
+    it "Valor de proteina del huevo" do
       expect(@huevo_frito.proteinas).to eq(14.1)
     end
   end
@@ -34,8 +38,46 @@ RSpec.describe ListaDoblementeEnlazada do
   before :all do
     @list = ListaDoblementeEnlazada.new()
     @elemento = %w(1 2 3 4 5)
+    # Huevos, lacteos y helados
+    @huevo_frito = Piramide.new("Huevo frito", 14.1, 0.0, 19.5, "Huevos, lacteos y helados")
+    @leche  = Piramide.new("Leche vaca" , 3.3 , 4.8,  3.2, "Huevos, lacteos y helados")
+    @yogurt = Piramide.new("Yogurt"     , 3.8 , 4.9,  3.8, "Huevos, lacteos y helados")
+    
+    @lista_g1 = ListaDoblementeEnlazada.new()
+    @lista_g1.insert(@huevo_frito)
+    @lista_g1.insert(@yogurt)
+    @lista_g1.insert(@leche)
+    ###################
+    # Carnes y derivados 
+    @cerdo = Piramide.new("Cerdo", 21.5, 0.0, 6.3, "Carnes y Derivados")
+    @ternera = Piramide.new("Ternera", 21.1, 0.0, 3.1, "Carnes y Derivados")
+    @pollo = Piramide.new("Pollo", 20.6, 0.0, 5.6, "Carnes y Derivados")
+    @lista_g2 = ListaDoblementeEnlazada.new()
+    @lista_g2.insert(@cerdo)
+    @lista_g2.insert(@ternera)
+    @lista_g2.insert(@pollo)
+    ###################
+    # Pescados y mariscos
+    @bacalao = Piramide.new("Bacalao", 17.7, 0.0, 0.4, "Pescados y mariscos")
+    @atun = Piramide.new("Atun", 21.5, 0.0, 15.5, "Pescados y mariscos")
+    @salmon = Piramide.new("Salmon", 19.9, 0.0, 13.6, "Pescados y mariscos")
+    @lista_g3 = ListaDoblementeEnlazada.new()
+    @lista_g3.insert(@bacalao)
+    @lista_g3.insert(@atun)
+    @lista_g3.insert(@salmon)
+    ###################
   end
-  context "#Lista" do
+  context "Grupos de alimentos" do
+    it "Huevos, lacteos y helados" do
+      @lista_g1.to_s  
+    end
+    it "Carnes y derivados" do
+      @lista_g2.to_s  
+    end
+    it "Pescados y mariscos" do
+      @lista_g3.to_s  
+    end
+  
     it "Debe existir una Lista con su cabeza" do
       expect(@list.head).to eq(nil)
     end
