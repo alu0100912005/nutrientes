@@ -14,7 +14,26 @@ RSpec.describe Piramide do
     it "Los alimentos ahora tienen un nombre de grupo" do
       expect(@huevo_frito.to_s).to eq("Huevos, lacteos y helados")
     end
-    ##hacer las pruebas de herencia
+    it "Comprobamos que responde a metodo propio de la clase (Food)" do
+      expect(@huevo_frito.respond_to?:get_ve).to eq(true)
+    end
+    it "Comprobamos que es una instancia de la clase (Piramide)" do
+      expect(@huevo_frito.instance_of?Piramide).to eq(true)
+    end
+    it "Comprobamos que NO debe ser instancia de la clase (Food)" do 
+      expect(@huevo_frito.instance_of?Food).to eq(false) 
+    end
+    it "Comprobamos que pertenece a la jerarquía de clase Food" do
+        expect(@huevo_frito.is_a?Food).to eq(true)
+    end
+    
+    it "Comprobamos que pertenece a la jerarquía de clase Object" do
+        expect(@huevo_frito.is_a?Object).to eq(true)
+    end
+    
+    it "Comprobamos que pertenece a la jerarquía de clase BasicObject" do
+        expect(@huevo_frito.is_a?BasicObject).to eq(true)
+    end
   end
 end
 
