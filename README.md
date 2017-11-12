@@ -48,4 +48,4 @@ Genere pruebas para comprobar la clase de un objeto, el tipo de un objeto y su p
 <li>rspec</li>
 <li>guard</li>
 
-### En P7
+### En P8
