@@ -2,7 +2,9 @@ require "spec_helper"
 require "./lib/alimento/alimento"
 require "./lib/alimento/lista"
 
-
+# @note Clase heredada de Food
+# == Returns:
+# Diferentes pruebas para Piramide
 RSpec.describe Piramide do
   before :all do
     @huevo_frito = Piramide.new("Huevo frito", 14.1, 0.0, 19.5, "Huevos, lacteos y helados")
@@ -37,6 +39,9 @@ RSpec.describe Piramide do
   end
 end
 
+# @note Nodo
+# == Returns:
+# Pruebas para la clase Nodo
 RSpec.describe Node do
   before :all do
     @nodo = Node.new("Valor",nil)
@@ -53,7 +58,9 @@ RSpec.describe Node do
         end
     end
 end
-
+# @note Lista doblemente enlazada
+# == Returns:
+# Pruebas para la clase lista doblemente enlazada
 RSpec.describe ListaDoblementeEnlazada do
   before :all do
     @list = ListaDoblementeEnlazada.new()
@@ -132,8 +139,31 @@ RSpec.describe ListaDoblementeEnlazada do
       expect(@list.extract_tail).to eq("4")
     end
   end
+  # @note Lista doblemente enlazada enumerable
+  # == Returns:
+  # MIN MAX y lista ordenada
+  context '# Lista doblemente enlazada enumerable' do
+    before :each do
+        @l1 = ListaDoblementeEnlazada.new()
+        @l1.insert(1)
+        @l1.insert(2)
+        @l1.insert(3)
+    end
+    
+    it 'Metodo min' do
+      expect(@l1.min).to eq(1)
+    end
+    it 'Metodo min' do
+      expect(@l1.max).to eq(3)
+    end
+    
+  
+  end
 end
 
+# @note Lista doblemente enlazada enumerable
+# == Returns:
+# MIN MAX y lista ordenada
 RSpec.describe Food do
   context "#Clase Alimento" do
     it "tiene un numero de version" do
@@ -144,7 +174,6 @@ RSpec.describe Food do
     # leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
     # yogurt = Food.new("Yogurt"     , 3.8 , 4.9,  3.8)
     # cerdo  = Food.new("Cerdo"      , 21.5, 0.0,  6.3)
-    
     
     it "debe existir un nombre para el alimento" do
       expect(huevo.nombre).not_to be nil
