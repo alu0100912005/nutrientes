@@ -162,8 +162,9 @@ RSpec.describe ListaDoblementeEnlazada do
     it 'Metodo map' do
       expect(@l1.map { |i| i+i }).to eq([2,4,6])
     end
-    
-  
+    it 'Metodo suma' do
+      expect(@l1.inject(0){|sum,x| sum + x }).to eq(6)
+    end
   end
 end
 
