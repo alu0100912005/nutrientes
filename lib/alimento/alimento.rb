@@ -3,6 +3,8 @@ require "alimento/alimento"
 class Food
     # @note Se tiene acceso de lectura y escritura a todos los atributos
     attr_accessor :nombre, :proteinas, :glucidos, :grasas, :n_grupo
+    # @note Clase Comparable
+    include Comparable
     # @note Inicializador
     # == Returns:
     # Inicializa nombre, proteinas, glucidos y grasas
@@ -24,6 +26,7 @@ class Food
         aux = "#{sum}" + " Kcal"
         return aux
     end
+    
     
 end
 

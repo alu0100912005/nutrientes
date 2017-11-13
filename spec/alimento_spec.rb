@@ -177,7 +177,7 @@ RSpec.describe Food do
       
     end
     huevo  = Food.new("Huevo frito", 14.1, 0.0, 19.5)
-    # leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
+    leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
     # yogurt = Food.new("Yogurt"     , 3.8 , 4.9,  3.8)
     # cerdo  = Food.new("Cerdo"      , 21.5, 0.0,  6.3)
     
@@ -219,6 +219,11 @@ RSpec.describe Food do
     
     it "tiene un metodo para calcular valor energetico" do
       expect(huevo.get_ve).to eq("231.9 Kcal")
+    end
+    context "#comparable:" do
+      it "Comparando operador <" do
+        expect(leche<huevo).to eq (true)
+      end
     end
   end
 end
