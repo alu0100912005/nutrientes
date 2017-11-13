@@ -224,6 +224,9 @@ RSpec.describe Food do
       it "Comparando operador <" do
         expect(leche<huevo).to eq (true)
       end
+      it "Comparando operador >" do
+        expect(leche>huevo).to eq (false)
+      end
     end
   end
 end
