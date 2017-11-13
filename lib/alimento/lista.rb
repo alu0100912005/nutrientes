@@ -3,12 +3,20 @@ require "./lib/alimento/alimento"
 
 #  create  a  Struct  with  :value,  :next  and  :prev 
 Node  =  Struct.new(:value,  :next,  :prev)
+# @author Nicolangelo Famiglietti
+# @note Clase ListaDoblementeEnlazada - Lista doblemente enlazada
 class ListaDoblementeEnlazada
     attr_reader :head, :tail
-    # attr_accessor :nombre, :proteinas, :glucidos, :grasas
+    include Enumerable
+    # @note Inicializador
+    # == Returns:
+    #Inicilizacion de la cola y la cabeza
     def initialize
         @head = @tail = nil
     end
+    # @note Método to_s
+    # == Returns:
+    #Devuelve la lista de alimentos formateada
     def to_s
         aux = @head
         s= aux.value.n_grupo
@@ -19,6 +27,9 @@ class ListaDoblementeEnlazada
         end
         s
     end
+    # @note Método size
+    # == Returns:
+    #Devuelve el tamaño de la lista
     def size
         count = 0
         if @head[:value] != nil then
@@ -31,6 +42,10 @@ class ListaDoblementeEnlazada
         end
         count
     end
+    # @note Método empty
+    # == Returns:
+    #true si esta vacio
+    #false si contiene algo
     def empty
         if(@head == nil)
             true
@@ -38,6 +53,10 @@ class ListaDoblementeEnlazada
             false
         end
     end
+    # @note Método insert
+    # == Returns:
+    #Inserta un elemento en la lista
+    #Devuelve true si se realizó correctamente
     def insert(value)
         node = Node.new(value, nil)
         if(empty)
@@ -49,6 +68,9 @@ class ListaDoblementeEnlazada
         end
         true
     end
+    # @note Método extract_head
+    # == Returns:
+    #El elemento a extraer por la cabeza
     def extract_head
         nodo = @head
       	if nodo != nil
@@ -61,6 +83,9 @@ class ListaDoblementeEnlazada
       	end
       	nodo
     end
+    # @note Método extract_tail
+    # == Returns:
+    #El elemento a extraer por la cola
     def extract_tail
         aux = nil
         if @tail[:value]==nil
@@ -75,5 +100,16 @@ class ListaDoblementeEnlazada
             @head = @tail
         end
         aux
+    end
+    # @note Método Enumerable
+    # == Returns:
+    # Enumerable
+    #Metodo de acceso a acada elemento
+    def each
+        aux = @head
+        while(aux != nil)
+            yield aux[:value]
+            aux= aux[:next]
+        end
     end
 end
