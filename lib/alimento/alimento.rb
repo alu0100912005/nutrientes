@@ -27,7 +27,35 @@ class Food
         return aux
     end
     
-    
+    # @note Metodo comparable de la clase Food
+    # == Returns:
+    # 0 Si es igual
+    # 1 Si es mayor
+    # -1 Si es menor
+    def <=>(other)
+        if @proteinas == other.proteinas
+            if @glucidos == other.glucidos
+                if @grasas == other.grasas
+                    return 0
+                    elsif
+                        grasas > other.grasas
+                        return 1
+                    else
+                        return -1
+                end
+            elsif
+                glucidos > other.glucidos
+                return 1
+            else
+                return -1
+            end
+        elsif
+            proteinas > other.proteinas
+            return 1
+        else
+            return -1
+        end
+    end
 end
 
 class Piramide < Food
