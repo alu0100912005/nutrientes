@@ -156,6 +156,9 @@ RSpec.describe ListaDoblementeEnlazada do
     it 'Metodo min' do
       expect(@l1.max).to eq(3)
     end
+    it 'Comprobando el metodo sort' do
+      expect(@l1.sort).to eq([1, 2, 3])
+    end
     
   
   end
