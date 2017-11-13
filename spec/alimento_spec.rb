@@ -159,6 +159,9 @@ RSpec.describe ListaDoblementeEnlazada do
     it 'Comprobando el metodo sort' do
       expect(@l1.sort).to eq([1, 2, 3])
     end
+    it 'Metodo map' do
+      expect(@l1.map { |i| i+i }).to eq([2,4,6])
+    end
     
   
   end
