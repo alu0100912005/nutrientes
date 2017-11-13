@@ -26,5 +26,6 @@ Modifíquela de manera que las instancias sean *enumerables*
 <li>rake</li>
 <li>rspec</li>
 <li>guard</li>
+<li>yard</li>
 
 ### En P8
