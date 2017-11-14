@@ -2,6 +2,7 @@ require "spec_helper"
 require "./lib/alimento/alimento"
 require "./lib/alimento/lista"
 
+# @author Nicolangelo Famiglietti
 # @note Clase heredada de Food
 # == Returns:
 # Diferentes pruebas para Piramide
@@ -69,9 +70,15 @@ RSpec.describe ListaDoblementeEnlazada do
     @huevo_frito = Piramide.new("Huevo frito", 14.1, 0.0, 19.5, "Huevos, lacteos y helados")
     @leche  = Piramide.new("Leche vaca" , 3.3 , 4.8,  3.2, "Huevos, lacteos y helados")
     @yogurt = Piramide.new("Yogurt"     , 3.8 , 4.9,  3.8, "Huevos, lacteos y helados")
-    
     @lista_g1 = ListaDoblementeEnlazada.new()
     
+    @lista = ListaDoblementeEnlazada.new()
+    @lista.insert(@huevo_frito.get_ve)
+    puts @huevo_frito.get_ve
+    @lista.insert(@leche.get_ve)
+    puts @leche.get_ve
+    @lista.insert(@yogurt.get_ve)
+    puts @yogurt.get_ve
     ###################
     # Carnes y derivados 
     @cerdo = Piramide.new("Cerdo", 21.5, 0.0, 6.3, "Carnes y Derivados")
@@ -139,27 +146,42 @@ RSpec.describe ListaDoblementeEnlazada do
       expect(@list.extract_tail).to eq("4")
     end
   end
+  context "#Enumerable en Lista de alimentos" do
+    it "Valor energetico max" do
+      expect(@lista.max).to eq(231.9)
+    end
+    it "Valor energetico min" do
+      expect(@lista.min).to eq(61.2)
+    end
+    it 'Lista ordenada' do
+      expect(@lista.sort).to eq([61.2, 69.0, 231.9])
+    end
+    it 'Suma total del valor energetico de la lista' do
+      expect(@lista.inject(0){|sum,x| sum + x }).to eq(362.1)
+    end
+  end
+  
   # @note Lista doblemente enlazada enumerable
   # == Returns:
   # MIN MAX y lista ordenada
-  context '# Lista doblemente enlazada enumerable' do
+  context '#Lista doblemente enlazada enumerable' do
     before :each do
         @l1 = ListaDoblementeEnlazada.new()
         @l1.insert(1)
-        @l1.insert(2)
         @l1.insert(3)
+        @l1.insert(2)
     end
     it 'Metodo min' do
       expect(@l1.min).to eq(1)
     end
-    it 'Metodo min' do
+    it 'Metodo max' do
       expect(@l1.max).to eq(3)
     end
     it 'Metodo sort' do
       expect(@l1.sort).to eq([1, 2, 3])
     end
     it 'Metodo map' do
-      expect(@l1.map { |i| i+i }).to eq([2,4,6])
+      expect(@l1.map { |i| i+i }).to eq([2,6,4])
     end
     it 'Metodo suma' do
       expect(@l1.inject(0){|sum,x| sum + x }).to eq(6)
@@ -177,7 +199,7 @@ RSpec.describe Food do
       
     end
     huevo  = Food.new("Huevo frito", 14.1, 0.0, 19.5)
-    leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
+    #leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
     # yogurt = Food.new("Yogurt"     , 3.8 , 4.9,  3.8)
     # cerdo  = Food.new("Cerdo"      , 21.5, 0.0,  6.3)
     
@@ -218,15 +240,27 @@ RSpec.describe Food do
     end
     
     it "tiene un metodo para calcular valor energetico" do
-      expect(huevo.get_ve).to eq("231.9 Kcal")
+      expect(huevo.get_ve).to eq(231.9)
     end
-    context "#comparable:" do
+    
+  end
+  context "#Clase Alimento Comparable:" do
+      huevo  = Food.new("Huevo frito", 14.1, 0.0, 19.5)
+      leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
       it "Comparando operador <" do
         expect(leche<huevo).to eq (true)
       end
       it "Comparando operador >" do
         expect(leche>huevo).to eq (false)
       end
-    end
+      it "Comparando operador == para que falle" do
+        expect(leche==huevo).to eq (false)
+      end
+      it "Comparando operador == para que acierte" do
+        expect(huevo==huevo).to eq (true)
+      end
+      it "Ordena los alimentos" do
+        expect([leche, huevo].sort).not_to be nil
+      end
   end
 end

@@ -1,5 +1,7 @@
 require "alimento/alimento"
 
+# @author Nicolangelo Famiglietti
+# @note Clase Food (Alimento)
 class Food
     # @note Se tiene acceso de lectura y escritura a todos los atributos
     attr_accessor :nombre, :proteinas, :glucidos, :grasas, :n_grupo
@@ -23,8 +25,8 @@ class Food
     #Devuelve el valor en calorias del alimento
     def get_ve
         sum = (@proteinas * 4) + (@glucidos * 4) + (@grasas * 9)
-        aux = "#{sum}" + " Kcal"
-        return aux
+        # aux = "#{sum}" + " Kcal"
+        return sum
     end
     
     # @note Metodo comparable de la clase Food
@@ -58,6 +60,7 @@ class Food
     end
 end
 
+# @note Clase Piramide que hereda de Food
 class Piramide < Food
     # @note Inicializador de la clase heredada
     # == Returns:
