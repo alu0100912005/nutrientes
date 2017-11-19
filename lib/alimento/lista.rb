@@ -104,7 +104,7 @@ class ListaDoblementeEnlazada
     # @note Método Enumerable
     # == Returns:
     # Enumerable
-    #Metodo de acceso a acada elemento
+    # Metodo de acceso a acada elemento
     def each
         aux = @head
         while(aux != nil)

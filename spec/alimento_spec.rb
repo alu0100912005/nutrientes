@@ -74,11 +74,8 @@ RSpec.describe ListaDoblementeEnlazada do
     
     @lista = ListaDoblementeEnlazada.new()
     @lista.insert(@huevo_frito.get_ve)
-    puts @huevo_frito.get_ve
     @lista.insert(@leche.get_ve)
-    puts @leche.get_ve
     @lista.insert(@yogurt.get_ve)
-    puts @yogurt.get_ve
     ###################
     # Carnes y derivados 
     @cerdo = Piramide.new("Cerdo", 21.5, 0.0, 6.3, "Carnes y Derivados")
