@@ -4,14 +4,14 @@ require "alimento/alimento"
 # @note Clase Food (Alimento)
 class Food
     # @note Se tiene acceso de lectura y escritura a todos los atributos
-    attr_accessor :nombre, :proteinas, :glucidos, :grasas, :n_grupo
+    attr_accessor :nombre, :proteinas, :glucidos, :grasas, :n_grupo, :valores
     # @note Clase Comparable
     include Comparable
     # @note Inicializador
     # == Returns:
     # Inicializa nombre, proteinas, glucidos y grasas
     def initialize(nombre, proteinas, glucidos, grasas)
-      @nombre, @proteinas, @glucidos, @grasas = nombre, proteinas, glucidos, grasas
+      @nombre, @proteinas, @glucidos, @grasas, @valores = nombre, proteinas, glucidos, grasas
     end
     # @note Método to_s
     # == Returns:
@@ -81,4 +81,20 @@ class Piramide < Food
     def devolver_nombre_grupo
         @n_grupo
     end
+end
+
+# @note Clase Aibc heredada de Food para el calculo del aibc del alimento
+class Aibc < Food
+    # @note Inicializador de la clase heredada
+    # == Returns:
+    # Inicializa nombre, proteinas, glucidos, grasas y valores
+    def initialize(nombre, proteinas, glucidos, grasas, valores)
+      super(nombre, proteinas, glucidos, grasas)
+    #   @valores = valores
+    end
+    # def aibc
+    #   s = @valores
+    #   s+=@valores
+    # end
+    
 end
