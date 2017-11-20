@@ -4,7 +4,7 @@ require "alimento/alimento"
 # @note Clase Food (Alimento)
 class Food
     # @note Se tiene acceso de lectura y escritura a todos los atributos
-    attr_accessor :nombre, :proteinas, :glucidos, :grasas, :n_grupo, :valores
+    attr_accessor :nombre, :proteinas, :glucidos, :grasas, :n_grupo, :valores, :glucosa
     # @note Clase Comparable
     include Comparable
     # @note Inicializador
@@ -88,13 +88,72 @@ class Aibc < Food
     # @note Inicializador de la clase heredada
     # == Returns:
     # Inicializa nombre, proteinas, glucidos, grasas y valores
-    def initialize(nombre, proteinas, glucidos, grasas, valores)
+    def initialize(nombre, proteinas, glucidos, grasas, valores, glucosa)
       super(nombre, proteinas, glucidos, grasas)
-      @valores = valores
+      @g = valores
+      @glu = glucosa
     end
-    # def aibc
-    #   s = @valores
-    #   s+=@valores
-    # end
+    def aibc
+        i = 0
+        r = []
+        while i < @g.size
+            index = 1
+            s = []
+            while index < @g[i].size
+                if @g[i][index] < @g[i][0]
+                    s << 0.0
+                else
+                    s << (((@g[i][index] - @g[i][0]) + (@g[i][index-1] - @g[i][0]))/2)*5
+                end
+                index = index + 1
+            end
+        r << s
+        i = i + 1
+        end
+        suma = []
+        j = 0
+        while j < @g.size
+            k = 0
+            s = 0
+            while k < r[j].size
+                s = s + r[j][k]
+                k = k + 1
+            end
+            suma << s
+            j = j + 1
+        end
+        
+        i1 = 0
+        r1 = []
+        while i1 < @glu.size
+            index1 = 1
+            s1 = []
+            while index1 < @glu[i1].size
+                if @glu[i1][index1] < @glu[i1][0]
+                    s1 << 0.0
+                else
+                    s1 << (((@glu[i1][index1] - @glu[i1][0]) + (@glu[i1][index1-1] - @glu[i1][0]))/2)*5
+                end
+                index1 = index1 + 1
+            end
+        r1 << s1
+        i1 = i1 + 1
+        end
+        aibc_glucosa = []
+        j1 = 0
+        while j1 < @glu.size
+            k1 = 0
+            s1 = 0
+            while k1 < r1[j1].size
+                s1 = s1 + r1[j1][k1]
+                k1 = k1 + 1
+            end
+            aibc_glucosa << s1
+            j1 = j1 + 1
+        end
+        
+        ig_alimento = (((suma[0] / aibc_glucosa[0])*100) + ((suma[1]/ aibc_glucosa[1])*100))/2
+        
+    end
     
 end
