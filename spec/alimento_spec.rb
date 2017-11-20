@@ -7,12 +7,12 @@ require "./lib/alimento/lista"
 RSpec.describe Aibc do
   before :all do
     valores = [1,2,3]
-    @yogurt = Aibc.new("Yogurt"     , 3.8 , 4.9,  3.8, "Huevos, lacteos y helados", valores)
+    @yogurt = Aibc.new("Yogurt"     , 3.8 , 4.9,  3.8, valores)
   end
   
   context "#AIBC" do
       it "Probando aibc" do
-        expect(@yogurt.aibc).to eq([1,2,3])
+        expect(@yogurt.aibc).to eq([1,3,3])
       end
   end
 end

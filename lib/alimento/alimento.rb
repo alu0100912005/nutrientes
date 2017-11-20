@@ -90,7 +90,7 @@ class Aibc < Food
     # Inicializa nombre, proteinas, glucidos, grasas y valores
     def initialize(nombre, proteinas, glucidos, grasas, valores)
       super(nombre, proteinas, glucidos, grasas)
-    #   @valores = valores
+      @valores = valores
     end
     # def aibc
     #   s = @valores
