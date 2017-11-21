@@ -14,7 +14,7 @@ RSpec.describe Aibc do
     # @yogurt1 = Aibc.new("Yogurt"     , 3.8 , 4.9,  3.8, valores[1])
   end
   
-  context "#Aibc" do
+  context "#Aibc - Imperativo" do
       it "Comprobando aibc del yogurt" do
         expect(@yogurt.aibc).to eq(52.21619897959183)
       end

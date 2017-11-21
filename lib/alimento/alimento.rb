@@ -93,67 +93,60 @@ class Aibc < Food
       @g = valores
       @glu = glucosa
     end
+    # @note Metodo AIBC para el calculo del indice glucémico
+    # == Returns:
+    # Valor del indice glucémico
     def aibc
-        i = 0
         r = []
-        while i < @g.size
-            index = 1
+        (0..1).collect{ 
+            |i| 
             s = []
-            while index < @g[i].size
+            (1..24).collect{
+                |index|
                 if @g[i][index] < @g[i][0]
                     s << 0.0
                 else
                     s << (((@g[i][index] - @g[i][0]) + (@g[i][index-1] - @g[i][0]))/2)*5
                 end
-                index = index + 1
-            end
-        r << s
-        i = i + 1
-        end
-        suma = []
-        j = 0
-        while j < @g.size
-            k = 0
-            s = 0
-            while k < r[j].size
+            }
+            r << s
+        }
+
+        aibc_alimento = []
+        (0..1).collect{ |j|
+            s=0
+            (0..23).collect{
+                |k|
                 s = s + r[j][k]
-                k = k + 1
-            end
-            suma << s
-            j = j + 1
-        end
+            }
+            aibc_alimento << s
+        }
         
-        i1 = 0
         r1 = []
-        while i1 < @glu.size
-            index1 = 1
+        (0..1).collect{ 
+            |i1| 
             s1 = []
-            while index1 < @glu[i1].size
+            (1..24).collect{
+                |index1|
                 if @glu[i1][index1] < @glu[i1][0]
                     s1 << 0.0
                 else
                     s1 << (((@glu[i1][index1] - @glu[i1][0]) + (@glu[i1][index1-1] - @glu[i1][0]))/2)*5
                 end
-                index1 = index1 + 1
-            end
-        r1 << s1
-        i1 = i1 + 1
-        end
+            }
+            r1 << s1
+        }
         aibc_glucosa = []
-        j1 = 0
-        while j1 < @glu.size
-            k1 = 0
-            s1 = 0
-            while k1 < r1[j1].size
+        (0..1).collect{ 
+            |j1|
+            s1=0
+            (0..23).collect{
+                |k1|
                 s1 = s1 + r1[j1][k1]
-                k1 = k1 + 1
-            end
+            }
             aibc_glucosa << s1
-            j1 = j1 + 1
-        end
+        }
         
-        ig_alimento = (((suma[0] / aibc_glucosa[0])*100) + ((suma[1]/ aibc_glucosa[1])*100))/2
-        
+        ig_alimento = (((aibc_alimento[0] /aibc_glucosa[0])*100) + (((aibc_alimento[1] /aibc_glucosa[1]))*100))/2
     end
-    
 end
