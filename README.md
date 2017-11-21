@@ -20,7 +20,11 @@ La comprobacion se activa cada vez que se hace un `push` al repositorio de la ge
 3. Escribir la direccion http del repositorio de la organización ‘ULL-ESIT-LPP-1718/tdd’ en la tarea habilitada en el campus virtual. ( https://github.com/ULL-ESIT-LPP-1718/tdd-alu0100912005 )
 
 ## Usage
-https://ull-esit-lpp-1718.github.io/tdd-alu0100912005/ 
+https://ull-esit-lpp-1718.github.io/tdd-alu0100912005/
+
+Fork clase `Point`:
+
+https://github.com/alu0100912005/point
 ### Gemas utilizadas:
 
 <li>bundler</li>
