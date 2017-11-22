@@ -22,6 +22,8 @@ La comprobacion se activa cada vez que se hace un `push` al repositorio de la ge
 ## Usage
 https://ull-esit-lpp-1718.github.io/tdd-alu0100912005/
 
+añadido travis
+
 Fork clase `Point`:
 
 https://github.com/alu0100912005/point
