@@ -58,34 +58,41 @@
       </div>
 
       <div id="content"><div id='filecontents'>
-<h1 id="label-Practica+8+-+LPP+17%2F18+-+Nicolangelo+Famiglietti">Practica 8 - LPP 17/18 - Nicolangelo Famiglietti</h1>
+<h1 id="label-Practica+9+-+LPP+17%2F18+-+Nicolangelo+Famiglietti">Practica 9 - LPP 17/18 - Nicolangelo Famiglietti</h1>
 
 <h2 id="label-Descripcion">Descripcion</h2>
 
 <p>Esta practica de laboratorio se ha de realizar utilizando el lenguaje de
-programacion <code>Ruby</code> y el paradigma de Programacion Orientada a
-Objetos. Se ha de partir de la estructura de la gema generada con la
-herramienta <code>Bundler</code> y realizar el control de versiones con git
-siguiendo su filosofia de ramas. Para el desarrollo de las clases se ha de
-seguir la metodologia de <em>Desarrollo dirigido por pruebas</em> (Test
-Driven Development - TDD) y la herramienta <code>RSpec</code>.</p>
+programacion <code>Ruby</code> y el paradigma de Programacion Funcional. Se
+ha de partir de la estructura de la gema generada con la herramienta
+<code>Bundler</code> y realizar el control de versiones con
+<code>git</code> siguiendo su filosofia de ramas. Para el desarrollo de las
+clases se ha de seguir la metodologia de <em>Desarrollo dirigido por
+pruebas</em> (Test Driven Development - TDD) y la herramienta
+<code>RSpec</code>. Considere la jerarquia de clases Ruby para representar
+alimentos y listas de practicas anteriores.</p>
 
 <h2 id="label-TODO">TODO</h2>
 <ol><li>
-<p>Considere la jerarquia de clases <code>Ruby</code> para representar
-alimentos de prácticas anteriores. Modifíquela de manera que las instancias
-sean <em>comparables</em></p>
+<p>Escribir un metodo para calcular el “Indice Glucemico” de un alimento que
+siga el paradigma de programacion funcional. El area incremental bajo la
+curva (aibc) se determina como la suma de 24 areas trapezoidales
+<code>(Si)</code>, donde: G0 es la concentracion de glucosa antes de cada
+ingesta, Gi es la concentracion de glucosa en el tiempo i y ∆t es le
+intervalo de tiempo entre las mediciones (en este caso siempre 5 minutos).
+Escriba un codigo fuente utilizando metodos como <code>collect</code>,
+<code>reduce</code>, <code>zip</code>, etc.</p>
 </li><li>
-<p>Considere la clase <code>Ruby</code> para representar y gestionar listas
-doblemente enlazadas de prácticas anteriores. Modifíquela de manera que las
-instancias sean <em>enumerables</em></p>
-</li><li>
-<p>Documentar la gema utilizando una herramienta de generación automática de
-documentación (<code>RDOC</code> o <code>YARD</code>).</p>
+<p>Comprobar con la herramienta <code>Travis</code> de Integracion Continua.
+el codigo <code>Ruby</code> desarrollado. Con ella se comprueba la
+portabilidad de los desarrollos entre distintas plataformas y versiones de
+Ruby. El fichero .travis.yml contiene el listado de plataformas sobre las
+que se quiere comprobar el correcto funcionamiento. La comprobacion se
+activa cada vez que se hace un <code>push</code> al repositorio de la gema.</p>
 </li><li>
 <p>Escribir la direccion http del repositorio de la organización
 ‘ULL-ESIT-LPP-1718/tdd’ en la tarea habilitada en el campus virtual. ( <a
-href="https://github.com/ULL-ESIT-LPP-1718/tdd.git">github.com/ULL-ESIT-LPP-1718/tdd.git</a>
+href="https://github.com/ULL-ESIT-LPP-1718/tdd-alu0100912005">github.com/ULL-ESIT-LPP-1718/tdd-alu0100912005</a>
 )</p>
 </li></ol>
 
@@ -94,13 +101,18 @@ href="https://github.com/ULL-ESIT-LPP-1718/tdd.git">github.com/ULL-ESIT-LPP-1718
 <p><a
 href="https://ull-esit-lpp-1718.github.io/tdd-alu0100912005">ull-esit-lpp-1718.github.io/tdd-alu0100912005</a>/</p>
 
+<p>Fork clase <code>Point</code>:</p>
+
+<p><a
+href="https://github.com/alu0100912005/point">github.com/alu0100912005/point</a></p>
+
 <h3 id="label-Gemas+utilizadas%3A">Gemas utilizadas:</h3>
-<li>bundler</li><li>rake</li><li>rspec</li><li>guard</li><li>yard</li>
-<h3 id="label-En+P8">En P8</h3>
+<li>bundler</li><li>rake</li><li>rspec</li><li>guard</li><li>yard</li><li>travis</li>
+<h3 id="label-En+P9">En P9</h3>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Nov 15 10:02:24 2017 by
+  Generated on Wed Nov 22 09:03:57 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.1.5).
 </div>
