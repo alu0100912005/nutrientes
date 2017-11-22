@@ -5,6 +5,28 @@ require "./lib/alimento/lista"
 # @author Nicolangelo Famiglietti
 # @note Clase heredada de Food
 # == Returns:
+# Pruebas con el AIBC de alimento imperativo
+
+RSpec.describe Aibc do
+  before :all do
+    valores_yo = [[6.7,6.5,6.8,6.9,7.0,7.1,6.9,6.9,6.9,6.7,6.9,7.3,7.0,7.0,7.2,7.1,6.8,7.2,7.3,7.0,6.8,6.7,6.8,6.7,6.9],
+              [ 4.6,4.8,5.3,5.6,6.1,6.5,6.6,7.0,7.0,6.8,6.4,6.3,6.1,6.1,6.2,6.0,6.1,6.1,6.2,6.3,6.4,6.1,6.1,5.7,5.9]]
+    glucosa = [[4.9,5.3,5.9,6.7,7.2,7.6,8.0,8.2,8.2,8.4,8.3,8.3,8.0,7.5,7.1,6.8,6.8,6.9,6.8,6.3,6.2,6.3,6.2,6.3,6.1],
+                  [6.3,5.4,5.6,5.7,6.5,7.4,7.9,7.4,7.7,7.9,7.9,7.8,7.8,7.8,8.0,8.5,9.4,10.8,10.5,9.1,8.9,8.3,7.7,7.6,7.5]]
+    @yogurt = Aibc.new("Yogurt"     , 3.8 , 4.9,  3.8, valores_yo, glucosa)
+  end
+  
+  context "#Aibc - Imperativo" do
+      it "Comprobando aibc del yogurt" do
+        expect(@yogurt.aibc).to eq(52.21619897959183)
+      end
+  end
+end
+
+
+# @author Nicolangelo Famiglietti
+# @note Clase heredada de Food
+# == Returns:
 # Diferentes pruebas para Piramide
 RSpec.describe Piramide do
   before :all do
@@ -195,49 +217,51 @@ RSpec.describe Food do
       expect(Alimento::VERSION).not_to be nil
       
     end
-    huevo  = Food.new("Huevo frito", 14.1, 0.0, 19.5)
-    #leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
-    # yogurt = Food.new("Yogurt"     , 3.8 , 4.9,  3.8)
-    # cerdo  = Food.new("Cerdo"      , 21.5, 0.0,  6.3)
+    before :each do
+      #leche  = Food.new("Leche vaca" , 3.3 , 4.8,  3.2)
+      # cerdo  = Food.new("Cerdo"      , 21.5, 0.0,  6.3)
+      @huevo  = Food.new("Huevo frito", 14.1, 0.0, 19.5)
+      @yogurt = Food.new("Yogurt"     , 3.8 , 4.9,  3.8)
+    end
     
     it "debe existir un nombre para el alimento" do
-      expect(huevo.nombre).not_to be nil
+      expect(@huevo.nombre).not_to be nil
     end
     
     it "debe existir la cantidad de proteinas del alimento en gramos" do
-      expect(huevo.proteinas).not_to be nil
+      expect(@huevo.proteinas).not_to be nil
     end
     
     it "debe existir la cantidad de glucidos del alimento en gramos" do
-      expect(huevo.glucidos).not_to be nil
+      expect(@huevo.glucidos).not_to be nil
     end
   
     it "debe existir la cantidad de grasas del alimento en gramos" do
-      expect(huevo.grasas).not_to be nil
+      expect(@huevo.grasas).not_to be nil
     end
     
     it "existe un metodo para obtener el nombre del alimento" do
-      expect(huevo.nombre).to eq("Huevo frito")
+      expect(@huevo.nombre).to eq("Huevo frito")
     end
     
     it "existe un metodo para obtener la cantidad de protinas de un alimento" do
-      expect(huevo.proteinas).to eq(14.1)
+      expect(@huevo.proteinas).to eq(14.1)
     end
     
     it "existe un metodo para obtener la cantidad de glucidos de un alimento" do
-      expect(huevo.glucidos).to eq(0.0)
+      expect(@huevo.glucidos).to eq(0.0)
     end
     
     it "existe un metodo para obtener la cantidad de grasas de un alimento" do
-      expect(huevo.grasas).to eq(19.5)
+      expect(@huevo.grasas).to eq(19.5)
     end
     
     it "tiene un metodo para obtener alimento formateado" do
-      expect(huevo.to_s).to eq("Huevo frito: 14.1 · 0.0 · 19.5")
+      expect(@huevo.to_s).to eq("Huevo frito: 14.1 · 0.0 · 19.5")
     end
     
     it "tiene un metodo para calcular valor energetico" do
-      expect(huevo.get_ve).to eq(231.9)
+      expect(@huevo.get_ve).to eq(231.9)
     end
     
   end
