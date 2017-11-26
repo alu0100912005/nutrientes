@@ -10,19 +10,32 @@ Considere la jerarquia de clases Ruby para representar alimentos y listas de pra
 
 ## TODO
 
-1.  Escribir un metodo para calcular el "Indice Glucemico" de un alimento que siga el paradigma de programacion funcional.
-El area incremental bajo la curva (aibc) se determina como la suma de 24 areas trapezoidales `(Si)`, donde: G0 es la concentracion de glucosa antes de cada ingesta, Gi es la concentracion de glucosa en el tiempo i y ∆t es le intervalo de tiempo entre las mediciones (en este caso siempre 5 minutos).
-Escriba un codigo fuente utilizando metodos como `collect`, `reduce`, `zip`, etc.
-2.  Comprobar con la herramienta `Travis` de Integracion Continua. el codigo `Ruby` desarrollado.
-Con ella se comprueba la portabilidad de los desarrollos entre distintas plataformas y versiones de Ruby.
-El fichero .travis.yml contiene el listado de plataformas sobre las que se quiere comprobar el correcto funcionamiento.
-La comprobacion se activa cada vez que se hace un `push` al repositorio de la gema.
-3. Escribir la direccion http del repositorio de la organización ‘ULL-ESIT-LPP-1718/tdd’ en la tarea habilitada en el campus virtual. ( https://github.com/ULL-ESIT-LPP-1718/tdd-alu0100912005 )
+1. Escriba el codigo que permita la representacion de la tabla mendiante un array.
+2. Escriba el codigo que permita obtener un nuevo array con los elementos ordenados por su valor energetico usando bucles `for`.
+3. Escriba el codigo que permita obtener un nuevo array con los elementos ordenados por su valor energetico usando el metodo `each`.
+4. Escriba el codigo que permita obtener un nuevo array con los elementos ordenados por su valor energetico usando el metodo `sort`.
+5. Haciendo uso del metodo `benchmark` de la clase *Benchmark* muestre un informe del tiempo de los ejercicios 2, 3, 4.
+6. En este momento se deberia comprobar con la herramienta `Coverall` la historia del cubrimiento y las estadisticas del codigo `Ruby` desarrollado.
+Darse de alta en https://https://coveralls.io/ y permitir que se acceda desde Github (poniendo a ON el proyecto).
+Crear un fichero .coveralls.yml que contenga la configuracion, por ejemplo:
+
+>service_name: travis-ci
+
+Especificar la dependencia de desarrollo de esta gema en el fichero .gemspec
+
+>spec.add_development_dependency "coveralls"
+
+Ejecutar bundler para que se instalen las dependencias:
+
+>bin/setup
+
+Incluir en el fichero spec_helper.rb el c´odigo de coverall:
+
+>require ’coveralls’
+>Coveralls.wear!
 
 ## Usage
 https://ull-esit-lpp-1718.github.io/tdd-alu0100912005/
-
-añadido travis
 
 Fork clase `Point`:
 
@@ -35,5 +48,6 @@ https://github.com/alu0100912005/point
 <li>guard</li>
 <li>yard</li>
 <li>travis</li>
+<li>coveralls</li>
 
-### En P9
+### En P10
