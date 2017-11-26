@@ -125,7 +125,8 @@ RSpec.describe ListaDoblementeEnlazada do
       expect(@lista_g1.insert(@leche)).to eq(true)
     end
     it "Existe un metodo to_s para el formateado del menu" do
-      expect(@lista_g1.to_s).to eq("Huevos, lacteos y helados\t\t\tProteinas Glucidos Lipidos\tHuevo frito: \t14.1  \t   0.0      19.5\tYogurt: \t3.8  \t   4.9      3.8\tLeche vaca: \t3.3  \t   4.8      3.2")
+      expect(@lista_g1.to_s).to eq("Huevos, lacteos y helados\n\t\t\tProteinas Glucidos Lipidos\n\tHuevo frito: \t14.1  \t   0.0      19.5\n\tYogurt: \t3.8  \t   4.9      3.8\n\tLeche vaca: \t3.3  \t   4.8      3.2\n")
+      # puts @lista_g1.to_s
     end
     # it "Carnes y derivados" do
     #   @lista_g2.to_s  

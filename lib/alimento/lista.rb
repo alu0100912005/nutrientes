@@ -20,9 +20,10 @@ class ListaDoblementeEnlazada
     def to_s
         aux = @head
         s= aux.value.n_grupo
-        s+= "\t\t\tProteinas Glucidos Lipidos"
+        s+="\n"
+        s+= "\t\t\tProteinas Glucidos Lipidos\n"
         while(aux != nil)
-            s+="\t#{aux.value.nombre}: \t#{aux.value.proteinas}  \t   #{aux.value.glucidos}      #{aux.value.grasas}"
+            s+="\t#{aux.value.nombre}: \t#{aux.value.proteinas}  \t   #{aux.value.glucidos}      #{aux.value.grasas}\n"
             aux= aux[:next]
         end
         s
