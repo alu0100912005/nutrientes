@@ -23,7 +23,7 @@ class ListaDoblementeEnlazada
         s+="\n"
         s+= "\t\t\tProteinas Glucidos Lipidos\n"
         while(aux != nil)
-            s+="\t#{aux.value.nombre}: \t#{aux.value.proteinas}  \t   #{aux.value.glucidos}      #{aux.value.grasas}\n"
+            s+="\t#{aux.value.nombre} \t#{aux.value.proteinas}  \t   #{aux.value.glucidos}      #{aux.value.grasas}\n"
             aux= aux[:next]
         end
         s
@@ -111,6 +111,22 @@ class ListaDoblementeEnlazada
         while(aux != nil)
             yield aux[:value]
             aux= aux[:next]
+        end
+    end
+    
+    # @note Metodo comparable de la clase Food
+    # == Returns:
+    # 0 Si es igual
+    # 1 Si es mayor
+    # -1 Si es menor
+    def <=>(other)
+        if @ve == other.ve
+            return 0
+        elsif
+            ve > other.ve
+            return 1
+        else
+            return -1
         end
     end
 end

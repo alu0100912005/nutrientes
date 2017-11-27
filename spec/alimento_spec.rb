@@ -91,18 +91,29 @@ RSpec.describe ListaDoblementeEnlazada do
     # Huevos, lacteos y helados
     @huevo_frito = Piramide.new("Huevo frito", 14.1, 0.0, 19.5, "Huevos, lacteos y helados")
     @leche  = Piramide.new("Leche vaca" , 3.3 , 4.8,  3.2, "Huevos, lacteos y helados")
-    @yogurt = Piramide.new("Yogurt"     , 3.8 , 4.9,  3.8, "Huevos, lacteos y helados")
+    @yogurt = Piramide.new("Yogurt      "     , 3.8 , 4.9,  3.8, "Huevos, lacteos y helados")
     @lista_g1 = ListaDoblementeEnlazada.new()
     
     @lista = ListaDoblementeEnlazada.new()
     @lista.insert(@huevo_frito.get_ve)
     @lista.insert(@leche.get_ve)
     @lista.insert(@yogurt.get_ve)
+    
+    @lista_to_sort1 = ListaDoblementeEnlazada.new()
+    @lista_to_sort = ListaDoblementeEnlazada.new()
+    @lista_to_sort.insert(@huevo_frito)
+    @lista_to_sort.insert(@leche)
+    @lista_to_sort.insert(@yogurt)
+    
+    # @cosa = (@leche.get_ve)
+    # @lista_sort = %w(@leche.get_ve)
+    # @lista_sort.insert(@leche.get_ve)
+    # @lista_sort.insert(@yogurt.get_ve)
     ###################
     # Carnes y derivados 
-    @cerdo = Piramide.new("Cerdo", 21.5, 0.0, 6.3, "Carnes y Derivados")
+    @cerdo = Piramide.new("Cerdo     ", 21.5, 0.0, 6.3, "Carnes y Derivados")
     @ternera = Piramide.new("Ternera", 21.1, 0.0, 3.1, "Carnes y Derivados")
-    @pollo = Piramide.new("Pollo", 20.6, 0.0, 5.6, "Carnes y Derivados")
+    @pollo = Piramide.new("Pollo     ", 20.6, 0.0, 5.6, "Carnes y Derivados")
     @lista_g2 = ListaDoblementeEnlazada.new()
     @lista_g2.insert(@cerdo)
     @lista_g2.insert(@ternera)
@@ -110,8 +121,8 @@ RSpec.describe ListaDoblementeEnlazada do
     ###################
     # Pescados y mariscos
     @bacalao = Piramide.new("Bacalao", 17.7, 0.0, 0.4, "Pescados y mariscos")
-    @atun = Piramide.new("Atun", 21.5, 0.0, 15.5, "Pescados y mariscos")
-    @salmon = Piramide.new("Salmon", 19.9, 0.0, 13.6, "Pescados y mariscos")
+    @atun = Piramide.new("Atun    ", 21.5, 0.0, 15.5, "Pescados y mariscos")
+    @salmon = Piramide.new("Salmon   ", 19.9, 0.0, 13.6, "Pescados y mariscos")
     @lista_g3 = ListaDoblementeEnlazada.new()
     @lista_g3.insert(@bacalao)
     @lista_g3.insert(@atun)
@@ -125,16 +136,45 @@ RSpec.describe ListaDoblementeEnlazada do
       expect(@lista_g1.insert(@leche)).to eq(true)
     end
     it "Existe un metodo to_s para el formateado del menu" do
-      expect(@lista_g1.to_s).to eq("Huevos, lacteos y helados\n\t\t\tProteinas Glucidos Lipidos\n\tHuevo frito: \t14.1  \t   0.0      19.5\n\tYogurt: \t3.8  \t   4.9      3.8\n\tLeche vaca: \t3.3  \t   4.8      3.2\n")
+      expect(@lista_g1.to_s).to eq("Huevos, lacteos y helados\n\t\t\tProteinas Glucidos Lipidos\n\tHuevo frito \t14.1  \t   0.0      19.5\n\tYogurt       \t3.8  \t   4.9      3.8\n\tLeche vaca \t3.3  \t   4.8      3.2\n")
       # puts @lista_g1.to_s
     end
     # it "Carnes y derivados" do
-    #   @lista_g2.to_s  
+    #   puts @lista_g2.to_s  
     # end
     # it "Pescados y mariscos" do
-    #   @lista_g3.to_s  
+    #   puts @lista_g3.to_s  
     # end
-    
+    it "Se obtiene un nuevo array ordenado usando bucles for" do
+      numbers = []
+      a=0
+      @lista_to_sort.each{|x| 
+        numbers[a] = x
+        a=a+1
+      }
+      for i in 0..numbers.size-1 do
+        for j in 0..numbers.size-1 do
+          if(numbers[i].get_ve < numbers[j].get_ve)
+            aux = numbers[j]
+            numbers[j] = numbers[i]
+            numbers[i] = aux
+          end
+        end
+      end
+      valores = []
+      a=0
+      numbers.each{|x| 
+        valores[a] = x.get_ve
+        a=a+1
+      }
+      expect(valores).to eq([61.2, 69.0, 231.9])
+    end
+    it "Se obtiene un nuevo array ordenado usando metodo sort" do
+      @lista_to_sort1.insert(@huevo_frito.get_ve)
+      @lista_to_sort1.insert(@leche.get_ve)
+      @lista_to_sort1.insert(@yogurt.get_ve)
+      expect(@lista_to_sort1.sort).to eq([61.2, 69.0, 231.9])
+    end
     it "Extrae por la cabeza de la lista - G1" do
       expect(@lista_g1.extract_head).not_to be nil
     end
