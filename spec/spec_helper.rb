@@ -1,5 +1,6 @@
 require "bundler/setup"
 require "alimento"
+require "coveralls"
 #no se toca
 
 RSpec.configure do |config|
@@ -13,3 +14,6 @@ RSpec.configure do |config|
     c.syntax = :expect
   end
 end
+
+
+Coveralls.wear!
