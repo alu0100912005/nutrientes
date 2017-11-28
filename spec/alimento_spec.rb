@@ -1,6 +1,7 @@
 require "spec_helper"
 require "./lib/alimento/alimento"
 require "./lib/alimento/lista"
+require 'benchmark'
 
 # @author Nicolangelo Famiglietti
 # @note Clase heredada de Food
@@ -99,16 +100,21 @@ RSpec.describe ListaDoblementeEnlazada do
     @lista.insert(@leche.get_ve)
     @lista.insert(@yogurt.get_ve)
     
+    @lista_to_sort2 = ListaDoblementeEnlazada.new()
     @lista_to_sort1 = ListaDoblementeEnlazada.new()
     @lista_to_sort = ListaDoblementeEnlazada.new()
     @lista_to_sort.insert(@huevo_frito)
     @lista_to_sort.insert(@leche)
     @lista_to_sort.insert(@yogurt)
     
-    # @cosa = (@leche.get_ve)
-    # @lista_sort = %w(@leche.get_ve)
-    # @lista_sort.insert(@leche.get_ve)
-    # @lista_sort.insert(@yogurt.get_ve)
+    @lista_to_sort1.insert(@huevo_frito.get_ve)
+    @lista_to_sort1.insert(@leche.get_ve)
+    @lista_to_sort1.insert(@yogurt.get_ve)
+    
+    @lista_to_sort2.insert(@huevo_frito.get_ve)
+    @lista_to_sort2.insert(@leche.get_ve)
+    @lista_to_sort2.insert(@yogurt.get_ve)
+
     ###################
     # Carnes y derivados 
     @cerdo = Piramide.new("Cerdo     ", 21.5, 0.0, 6.3, "Carnes y Derivados")
@@ -145,35 +151,22 @@ RSpec.describe ListaDoblementeEnlazada do
     # it "Pescados y mariscos" do
     #   puts @lista_g3.to_s  
     # end
+    
     it "Se obtiene un nuevo array ordenado usando bucles for" do
-      numbers = []
-      a=0
-      @lista_to_sort.each{|x| 
-        numbers[a] = x
-        a=a+1
-      }
-      for i in 0..numbers.size-1 do
-        for j in 0..numbers.size-1 do
-          if(numbers[i].get_ve < numbers[j].get_ve)
-            aux = numbers[j]
-            numbers[j] = numbers[i]
-            numbers[i] = aux
-          end
-        end
-      end
-      valores = []
-      a=0
-      numbers.each{|x| 
-        valores[a] = x.get_ve
-        a=a+1
-      }
-      expect(valores).to eq([61.2, 69.0, 231.9])
+      expect(@lista_to_sort.sortFor(@lista_to_sort)).to eq([61.2, 69.0, 231.9])
+    end
+    it "Se obtiene un nuevo array ordenado usando metodo each" do
+      expect(@lista_to_sort2.sortEach(@lista_to_sort2)).to eq([61.2, 69.0, 231.9])
     end
     it "Se obtiene un nuevo array ordenado usando metodo sort" do
-      @lista_to_sort1.insert(@huevo_frito.get_ve)
-      @lista_to_sort1.insert(@leche.get_ve)
-      @lista_to_sort1.insert(@yogurt.get_ve)
       expect(@lista_to_sort1.sort).to eq([61.2, 69.0, 231.9])
+    end
+    it "Clase Benchmark" do
+      Benchmark.bm do |x|
+        x.report("for: ") { @lista_to_sort.sortFor(@lista_to_sort) }
+        x.report("each:") { @lista_to_sort2.sortEach(@lista_to_sort2) }
+        x.report("sort:") { @lista_to_sort1.sort }
+      end
     end
     it "Extrae por la cabeza de la lista - G1" do
       expect(@lista_g1.extract_head).not_to be nil

@@ -129,4 +129,47 @@ class ListaDoblementeEnlazada
             return -1
         end
     end
+    
+    def sortFor(lista)
+        numbers=[]
+        a=0
+        lista.each{|x| 
+            numbers[a] = x
+            a=a+1
+          }
+        for i in 0..numbers.size-1 do
+            for j in 0..numbers.size-1 do
+              if(numbers[i].get_ve < numbers[j].get_ve)
+                aux = numbers[j]
+                numbers[j] = numbers[i]
+                numbers[i] = aux
+              end
+            end
+        end
+        lista = []
+        a=0
+        numbers.each{|x| 
+            lista[a] = x.get_ve
+            a=a+1
+        }
+        lista
+    end
+    
+    def sortEach(lista)
+        numbers = []
+        i=0
+        numbers[i] = lista.extract_head.value
+        lista.each {|x|
+              if numbers[i] > x
+                aux = numbers[i]
+                numbers[i] = x
+                i=i+1
+                numbers[i] = aux
+              else
+                i=i+1
+                numbers[i] = x
+              end
+        } 
+        numbers
+    end
 end
