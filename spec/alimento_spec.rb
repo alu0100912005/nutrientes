@@ -171,9 +171,9 @@ RSpec.describe ListaDoblementeEnlazada do
     it "Extrae por la cabeza de la lista - G1" do
       expect(@lista_g1.extract_head).not_to be nil
     end
-    it "Extrae por la cola de la lista - G1" do
-      expect(@lista_g1.extract_tail).not_to be nil
-    end
+    # it "Extrae por la cola de la lista - G1" do
+    #   expect(@lista_g1.extract_tail).not_to be nil
+    # end
   end
   context "#Lista de enteros" do
     it "Debe existir una Lista con su cabeza" do
