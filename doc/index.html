@@ -58,7 +58,7 @@
       </div>
 
       <div id="content"><div id='filecontents'>
-<h1 id="label-Practica+9+-+LPP+17%2F18+-+Nicolangelo+Famiglietti">Practica 9 - LPP 17/18 - Nicolangelo Famiglietti</h1>
+<h1 id="label-Practica+10+-+LPP+17%2F18+-+Nicolangelo+Famiglietti">Practica 10 - LPP 17/18 - Nicolangelo Famiglietti</h1>
 
 <h2 id="label-Descripcion">Descripcion</h2>
 
@@ -74,27 +74,51 @@ alimentos y listas de practicas anteriores.</p>
 
 <h2 id="label-TODO">TODO</h2>
 <ol><li>
-<p>Escribir un metodo para calcular el “Indice Glucemico” de un alimento que
-siga el paradigma de programacion funcional. El area incremental bajo la
-curva (aibc) se determina como la suma de 24 areas trapezoidales
-<code>(Si)</code>, donde: G0 es la concentracion de glucosa antes de cada
-ingesta, Gi es la concentracion de glucosa en el tiempo i y ∆t es le
-intervalo de tiempo entre las mediciones (en este caso siempre 5 minutos).
-Escriba un codigo fuente utilizando metodos como <code>collect</code>,
-<code>reduce</code>, <code>zip</code>, etc.</p>
+<p>Escriba el codigo que permita la representacion de la tabla mendiante un
+array.</p>
 </li><li>
-<p>Comprobar con la herramienta <code>Travis</code> de Integracion Continua.
-el codigo <code>Ruby</code> desarrollado. Con ella se comprueba la
-portabilidad de los desarrollos entre distintas plataformas y versiones de
-Ruby. El fichero .travis.yml contiene el listado de plataformas sobre las
-que se quiere comprobar el correcto funcionamiento. La comprobacion se
-activa cada vez que se hace un <code>push</code> al repositorio de la gema.</p>
+<p>Escriba el codigo que permita obtener un nuevo array con los elementos
+ordenados por su valor energetico usando bucles <code>for</code>.</p>
 </li><li>
-<p>Escribir la direccion http del repositorio de la organización
-‘ULL-ESIT-LPP-1718/tdd’ en la tarea habilitada en el campus virtual. ( <a
-href="https://github.com/ULL-ESIT-LPP-1718/tdd-alu0100912005">github.com/ULL-ESIT-LPP-1718/tdd-alu0100912005</a>
-)</p>
+<p>Escriba el codigo que permita obtener un nuevo array con los elementos
+ordenados por su valor energetico usando el metodo <code>each</code>.</p>
+</li><li>
+<p>Escriba el codigo que permita obtener un nuevo array con los elementos
+ordenados por su valor energetico usando el metodo <code>sort</code>.</p>
+</li><li>
+<p>Haciendo uso del metodo <code>benchmark</code> de la clase
+<em>Benchmark</em> muestre un informe del tiempo de los ejercicios 2, 3, 4.</p>
+</li><li>
+<p>En este momento se deberia comprobar con la herramienta
+<code>Coverall</code> la historia del cubrimiento y las estadisticas del
+codigo <code>Ruby</code> desarrollado. Darse de alta en <a
+href="https://coveralls.io">coveralls.io</a>/ y permitir que se acceda
+desde Github (poniendo a ON el proyecto). Crear un fichero .coveralls.yml
+que contenga la configuracion, por ejemplo:</p>
 </li></ol>
+
+<blockquote>
+<p>service_name: travis-ci</p>
+</blockquote>
+
+<p>Especificar la dependencia de desarrollo de esta gema en el fichero
+.gemspec</p>
+
+<blockquote>
+<p>spec.add_development_dependency “coveralls”</p>
+</blockquote>
+
+<p>Ejecutar bundler para que se instalen las dependencias:</p>
+
+<blockquote>
+<p>bin/setup</p>
+</blockquote>
+
+<p>Incluir en el fichero spec_helper.rb el c´odigo de coverall:</p>
+
+<blockquote>
+<p>require ’coveralls’ Coveralls.wear!</p>
+</blockquote>
 
 <h2 id="label-Usage">Usage</h2>
 
@@ -107,12 +131,12 @@ href="https://ull-esit-lpp-1718.github.io/tdd-alu0100912005">ull-esit-lpp-1718.g
 href="https://github.com/alu0100912005/point">github.com/alu0100912005/point</a></p>
 
 <h3 id="label-Gemas+utilizadas%3A">Gemas utilizadas:</h3>
-<li>bundler</li><li>rake</li><li>rspec</li><li>guard</li><li>yard</li><li>travis</li>
-<h3 id="label-En+P9">En P9</h3>
+<li>bundler</li><li>rake</li><li>rspec</li><li>guard</li><li>yard</li><li>travis</li><li>coveralls</li>
+<h3 id="label-En+P10">En P10</h3>
 </div></div>
 
       <div id="footer">
-  Generated on Wed Nov 22 09:03:57 2017 by
+  Generated on Tue Nov 28 15:32:53 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.9 (ruby-2.1.5).
 </div>

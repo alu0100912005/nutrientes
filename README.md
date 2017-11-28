@@ -16,7 +16,7 @@ Considere la jerarquia de clases Ruby para representar alimentos y listas de pra
 4. Escriba el codigo que permita obtener un nuevo array con los elementos ordenados por su valor energetico usando el metodo `sort`.
 5. Haciendo uso del metodo `benchmark` de la clase *Benchmark* muestre un informe del tiempo de los ejercicios 2, 3, 4.
 6. En este momento se deberia comprobar con la herramienta `Coverall` la historia del cubrimiento y las estadisticas del codigo `Ruby` desarrollado.
-Darse de alta en https://https://coveralls.io/ y permitir que se acceda desde Github (poniendo a ON el proyecto).
+Darse de alta en https://coveralls.io/ y permitir que se acceda desde Github (poniendo a ON el proyecto).
 Crear un fichero .coveralls.yml que contenga la configuracion, por ejemplo:
 
 >service_name: travis-ci
