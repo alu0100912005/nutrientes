@@ -1,3 +1,7 @@
+[![Coverage Status](https://coveralls.io/repos/github/alu0100912005/nutrientes/badge.svg?branch=master)](https://coveralls.io/github/alu0100912005/nutrientes?branch=master)
+
+[![Build Status](https://travis-ci.org/alu0100912005/nutrientes.svg?branch=master)](https://travis-ci.org/alu0100912005/nutrientes)
+
 # Practica 11 - LPP 17/18 - Nicolangelo Famiglietti
 
 ## Descripcion
