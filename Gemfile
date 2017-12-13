@@ -1,3 +1,4 @@
+gem 'coveralls', require: false
 source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/ULL-ESIT-LPP-1718/tdd-alu0100912005" }
@@ -8,3 +9,4 @@ gemspec
 group :development do
   gem 'guard'
 end
+
