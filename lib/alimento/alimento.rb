@@ -1,4 +1,4 @@
-require "alimento/alimento"
+# require "alimento/alimento"
 
 # @author Nicolangelo Famiglietti
 # @note Clase Food (Alimento)
@@ -73,7 +73,7 @@ class Piramide < Food
     # == Returns:
     #Devuelve el nombre del grupo al que pertenece el alimento
     def to_s
-      @n_grupo
+      @nombre
     end
     # @note Método devolver_nombre_grupo
     # == Returns:

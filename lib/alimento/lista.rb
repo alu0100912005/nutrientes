@@ -1,5 +1,5 @@
-require "alimento/alimento"
-require "./lib/alimento/alimento"
+# require "alimento/version"
+require_relative "alimento"
 
 #  create  a  Struct  with  :value,  :next  and  :prev 
 Node  =  Struct.new(:value,  :next,  :prev)
@@ -54,6 +54,7 @@ class ListaDoblementeEnlazada
             false
         end
     end
+    
     # @note Método insert
     # == Returns:
     #Inserta un elemento en la lista
